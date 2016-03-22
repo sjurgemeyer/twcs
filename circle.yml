@@ -1,0 +1,29 @@
+machine:
+  java:
+    version:
+      oraclejdk8
+
+  environment:
+    MAX_HEAP_SIZE: 512M
+    HEAP_NEWSIZE: 128M
+
+dependencies:
+  override:
+    - mvn compile
+
+  cache_directories:
+
+test:
+  override:
+    - mvn test
+
+deployment:
+  master:
+    branch: master
+    commands:
+        - mvn package
+
+  release:
+    branch: release
+    commands:
+        - mvn package
