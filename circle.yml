@@ -22,8 +22,9 @@ deployment:
     branch: master
     commands:
         - mvn package
-
+        - mvn deploy
   release:
     branch: release
     commands:
         - mvn package
+        - mvn deploy
